@@ -1,0 +1,86 @@
+@model WebCongNghe.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm";
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Create product</span>
+        <h1 class="page-title">Thêm sản phẩm mới vào catalog.</h1>
+        <p class="page-copy mb-0 mt-3">Editor nay giu nguyen hanh vi backend hien co, nhung sap xep thong tin ro rang hon de nhap lieu nhanh va de kiem soat.</p>
+    </div>
+    <div class="page-actions">
+        <a href="@(string.IsNullOrWhiteSpace(returnUrl) ? Url.Action("Index", "Product") : returnUrl)" class="btn btn-outline-light">Quay lai danh sach</a>
+    </div>
+</section>
+
+<section class="editor-layout">
+    <div class="surface-form">
+        <form asp-action="Add" method="post" enctype="multipart/form-data" class="editor-grid">
+            <input type="hidden" name="returnUrl" value="@returnUrl" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Nhap ten san pham" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="info-grid">
+                <div>
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" placeholder="Vi du: 15990000" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="CategoryId" class="form-label"></label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select">
+                        <option value="">Chon danh muc</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="6" placeholder="Mô tả ngắn về sản phẩm"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label class="form-label">Ảnh sản phẩm</label>
+                <input name="imageFile" type="file" class="form-control" accept="image/*" />
+            </div>
+
+            <div class="page-actions">
+                <button type="submit" class="btn btn-electric">Luu san pham</button>
+                <a href="@(string.IsNullOrWhiteSpace(returnUrl) ? Url.Action("Index", "Product") : returnUrl)" class="btn btn-outline-secondary">Huy</a>
+            </div>
+        </form>
+    </div>
+    <aside class="detail-stack">
+        <div class="surface-highlight">
+            <span class="eyebrow">Editor guide</span>
+            <h2 class="section-title">Nhap du lieu theo thu tu: ten, gia, danh muc, mo ta, anh.</h2>
+            <p class="section-copy mt-3 mb-0">Cach to chuc nay giup catalog hien thi dep hon o card view va trang chi tiet sau khi luu.</p>
+        </div>
+        <div class="surface-card">
+            <div class="meta-list">
+                <div class="meta-item">
+                    <span class="meta-label">Ảnh đại diện</span>
+                    <div class="meta-value">Nen dung anh ro net, dung ty le va de nhin tot trong product card.</div>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Danh mục</span>
+                    <div class="meta-value">Hay tao danh muc truoc neu dropdown chua co lua chon phu hop.</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

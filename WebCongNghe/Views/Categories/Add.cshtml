@@ -1,0 +1,42 @@
+@model WebCongNghe.Models.Category
+
+@{
+    ViewData["Title"] = "Thêm danh mục";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Create category</span>
+        <h1 class="page-title">Thêm danh mục mới.</h1>
+        <p class="page-copy mb-0 mt-3">Danh mục la lop phan loai nen duoc dung xuyen suot trong catalog va form san pham, vi vay ten goi nen ngan gon va de hieu.</p>
+    </div>
+    <div class="page-actions">
+        <a asp-action="Index" class="btn btn-outline-light">Quay lai danh sach</a>
+    </div>
+</section>
+
+<section class="editor-layout">
+    <div class="surface-form">
+        <form asp-action="Add" method="post" class="editor-grid">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Nhap ten danh muc" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="page-actions">
+                <button type="submit" class="btn btn-electric">Luu danh muc</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Huy</a>
+            </div>
+        </form>
+    </div>
+    <aside class="surface-highlight">
+        <span class="eyebrow">Luu y</span>
+        <h2 class="section-title">Danh mục tot giup product card va dropdown de doc hon.</h2>
+        <p class="section-copy mt-3 mb-0">Hay dat ten theo nhom san pham that su co y nghia nhu Laptop, Điện thoại, Phụ kiện, thay vi dat qua dai dong hoac mo ho.</p>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

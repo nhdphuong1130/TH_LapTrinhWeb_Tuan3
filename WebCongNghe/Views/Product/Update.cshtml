@@ -1,0 +1,110 @@
+@model WebCongNghe.Models.Product
+
+@{
+    ViewData["Title"] = "Cập nhật san pham";
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Edit product</span>
+        <h1 class="page-title">Cập nhật san pham trong catalog.</h1>
+        <p class="page-copy mb-0 mt-3">Preview anh van duoc giu nguyen, trong khi bo cuc editor duoc nang cap de de chinh sua va kiem tra hon.</p>
+    </div>
+    <div class="page-actions">
+        <a href="@(string.IsNullOrWhiteSpace(returnUrl) ? Url.Action("Index", "Product") : returnUrl)" class="btn btn-outline-light">Quay lai danh sach</a>
+    </div>
+</section>
+
+<section class="editor-layout">
+    <div class="surface-form">
+        <form asp-action="Update" method="post" enctype="multipart/form-data" class="editor-grid">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ImageUrl" />
+            <input type="hidden" name="returnUrl" value="@returnUrl" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="info-grid">
+                <div>
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="CategoryId" class="form-label"></label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label class="form-label">Ảnh sản phẩm</label>
+                <input id="imageInput" name="imageFile" type="file" class="form-control" accept="image/*" />
+            </div>
+
+            <div class="page-actions">
+                <button type="submit" class="btn btn-electric">Luu thay doi</button>
+                <a href="@(string.IsNullOrWhiteSpace(returnUrl) ? Url.Action("Index", "Product") : returnUrl)" class="btn btn-outline-secondary">Huy</a>
+            </div>
+        </form>
+    </div>
+    <aside class="detail-stack">
+        <div class="surface-card">
+            <span class="eyebrow">Preview</span>
+            <h2 class="section-title">Ảnh hiện tại</h2>
+            <p class="side-note mt-3 mb-4">Khi chon file moi, preview se duoc cap nhat ngay de ban kiem tra truoc khi luu.</p>
+            <div class="detail-image-wrap">
+                @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+                {
+                    <img id="previewImage" src="@Model.ImageUrl" alt="@Model.Name" class="preview-image" />
+                    <div id="previewPlaceholder" class="placeholder-thumb d-none">Chưa có ảnh</div>
+                }
+                else
+                {
+                    <img id="previewImage" src="" alt="Preview" class="preview-image d-none" />
+                    <div id="previewPlaceholder" class="placeholder-thumb">Chưa có ảnh</div>
+                }
+            </div>
+        </div>
+        <div class="surface-highlight">
+            <span class="eyebrow">Editing note</span>
+            <p class="section-copy mb-0">Thay doi tai day se phan anh truc tiep tren product card, chi tiet san pham va cac thao tac CRUD ke tiep.</p>
+        </div>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const imageInput = document.getElementById("imageInput");
+        const previewImage = document.getElementById("previewImage");
+        const previewPlaceholder = document.getElementById("previewPlaceholder");
+
+        imageInput?.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewImage.src = e.target.result;
+                previewImage.classList.remove("d-none");
+                previewPlaceholder?.classList.add("d-none");
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+}

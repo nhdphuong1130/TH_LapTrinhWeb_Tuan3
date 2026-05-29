@@ -1,0 +1,153 @@
+@model WebCongNghe.Models.CategoryManagementViewModel
+
+@{
+    ViewData["Title"] = "Danh mục";
+    var selectedCategory = Model.SelectedCategory;
+    var returnUrl = selectedCategory is null
+        ? Url.Action("Index", "Categories")
+        : Url.Action("Index", "Categories", new { selectedCategoryId = selectedCategory.Id });
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Quản lý danh mục</span>
+        <h1 class="page-title">Quản lý sản phẩm theo từng danh mục trong cùng một màn hình.</h1>
+        <p class="page-copy mb-0 mt-3">Chọn danh mục ở cột trái, xem toàn bộ sản phẩm thuộc danh mục đó và thao tác CRUD ngay trong workspace bên phải.</p>
+    </div>
+    <div class="page-actions">
+        <a asp-action="Add" class="btn btn-electric">Thêm danh mục</a>
+        @if (selectedCategory is not null)
+        {
+            <a asp-controller="Product" asp-action="Add" asp-route-categoryId="@selectedCategory.Id" asp-route-returnUrl="@returnUrl" class="btn btn-outline-light">Thêm sản phẩm</a>
+        }
+    </div>
+</section>
+
+@if (!Model.HasCategories)
+{
+    <section class="empty-state">
+        <h2 class="section-title">Chưa có danh muc nao.</h2>
+        <p class="section-copy mx-auto mt-3 mb-4">Tạo danh mục trước để có thể nhóm và quản lý sản phẩm theo từng khu vực riêng.</p>
+        <a asp-action="Add" class="btn btn-electric">Tạo danh mục</a>
+    </section>
+}
+else
+{
+    <section class="category-management">
+        <aside class="category-management__rail">
+            <div class="category-management__panel">
+                <div class="category-management__panel-head">
+                    <span class="category-pill">Danh mục</span>
+                    <strong>@Model.TotalCategories</strong>
+                </div>
+
+                <div class="category-management__category-list">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <a asp-action="Index"
+                           asp-route-selectedCategoryId="@category.Id"
+                           class="category-management__category-item @(category.IsSelected ? "is-active" : null)">
+                            <div>
+                                <div class="category-management__category-name">@category.Name</div>
+                                <div class="management-meta">@category.ProductCount san pham</div>
+                            </div>
+                            <span class="category-management__category-code">@category.Id.ToString("D2")</span>
+                        </a>
+                    }
+                </div>
+            </div>
+        </aside>
+
+        <div class="category-management__workspace">
+            <div class="category-management__panel">
+                <div class="category-management__workspace-head">
+                    <div>
+                        <span class="category-pill mb-3">@selectedCategory!.Id.ToString("D2")</span>
+                        <h2 class="section-title mt-3 mb-2">@selectedCategory.Name</h2>
+                        <p class="section-copy mb-0">Danh sách sản phẩm trong danh mục này được quản lý trực tiếp từ workspace hiện tại.</p>
+                    </div>
+                    <div class="management-actions">
+                        <a asp-action="Display" asp-route-id="@selectedCategory.Id" class="btn btn-sm btn-primary">Xem</a>
+                        <a asp-action="Update" asp-route-id="@selectedCategory.Id" class="btn btn-sm btn-outline-primary">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@selectedCategory.Id" class="btn btn-sm btn-outline-danger">Xóa</a>
+                    </div>
+                </div>
+
+                <div class="category-management__summary">
+                    <article class="category-management__summary-card">
+                        <span class="management-meta">Số lượng sản phẩm</span>
+                        <strong>@Model.SelectedProductCount</strong>
+                    </article>
+                    <article class="category-management__summary-card">
+                        <span class="management-meta">Điều hướng nhanh</span>
+                        <a asp-controller="Product" asp-action="Index" asp-route-categoryId="@selectedCategory.Id">Mở catalog loc theo danh muc</a>
+                    </article>
+                </div>
+
+                @if (Model.Products.Count == 0)
+                {
+                    <section class="empty-state category-management__empty">
+                        <h3 class="section-title">Danh mục nay chua co san pham.</h3>
+                        <p class="section-copy mx-auto mt-3 mb-4">Tạo sản phẩm đầu tiên trong danh mục hiện tại để bắt đầu quản lý theo nhóm.</p>
+                        <a asp-controller="Product" asp-action="Add" asp-route-categoryId="@selectedCategory.Id" asp-route-returnUrl="@returnUrl" class="btn btn-electric">Thêm sản phẩm dau tien</a>
+                    </section>
+                }
+                else
+                {
+                    <div class="category-management__product-table-wrap">
+                        <table class="table category-management__product-table">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Gia</th>
+                                    <th>Anh</th>
+                                    <th class="text-end">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.Products)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="category-management__product-cell">
+                                                <div class="category-management__thumb-wrap">
+                                                    @if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+                                                    {
+                                                        <img src="@product.ImageUrl" alt="@product.Name" class="category-management__thumb" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="category-management__thumb-placeholder">Chưa có ảnh</div>
+                                                    }
+                                                </div>
+                                                <div class="category-management__product-copy">
+                                                    <div class="category-management__product-name">@product.Name</div>
+                                                    <div class="management-meta">@(string.IsNullOrWhiteSpace(product.Description) ? "Không có mô tả bổ sung." : product.Description)</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="category-management__price">@product.Price.ToString("N0") VND</div>
+                                        </td>
+                                        <td>
+                                            <span class="category-management__image-status @(string.IsNullOrWhiteSpace(product.ImageUrl) ? "is-empty" : "is-ready")">
+                                                @(string.IsNullOrWhiteSpace(product.ImageUrl) ? "Chưa có" : "Đã có")
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="category-management__product-actions">
+                                                <a asp-controller="Product" asp-action="Display" asp-route-id="@product.Id" class="btn btn-sm btn-primary">Xem</a>
+                                                <a asp-controller="Product" asp-action="Update" asp-route-id="@product.Id" asp-route-returnUrl="@returnUrl" class="btn btn-sm btn-outline-primary">Sửa</a>
+                                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" asp-route-returnUrl="@returnUrl" class="btn btn-sm btn-outline-danger">Xóa</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

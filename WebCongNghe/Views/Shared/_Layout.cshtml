@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebDienTu</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebCongNghe.styles.css" asp-append-version="true" />
+</head>
+<body class="app-shell">
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    }
+    @inject WebCongNghe.Services.ICartService CartService
+    @{
+        var cartCount = await CartService.GetCartItemCountAsync();
+    }
+
+    <header class="shell-header">
+        <nav class="navbar navbar-expand-lg shell-nav">
+            <div class="container-xl">
+                <a class="navbar-brand shell-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="brand-mark">WC</span>
+                    <div class="brand-text">
+                        <span class="brand-title">WebDienTu</span>
+                        <small class="brand-sub">Bright Tech Commerce</small>
+                    </div>
+                </a>
+                <button class="navbar-toggler shell-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <ul class="navbar-nav shell-links">
+                        <li class="nav-item">
+                            <a class="nav-link @(currentController == "Home" ? "active" : null)" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(currentController == "Product" ? "active" : null)" asp-area="" asp-controller="Product" asp-action="Index">Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(currentController == "Categories" ? "active" : null)" asp-area="" asp-controller="Categories" asp-action="Index">Danh mục</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(currentController == "Cart" ? "active" : null)" asp-area="" asp-controller="Cart" asp-action="Index">Giỏ hàng (@cartCount)</a>
+                        </li>
+                    </ul>
+                    <div class="ms-3 d-flex align-items-center">
+                        <a class="btn btn-electric" asp-area="" asp-controller="Product" asp-action="Index">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="shell-backdrop"></div>
+
+    <div class="container-xl shell-main">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="shell-footer">
+        <div class="container-xl">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-title">WebDienTu</div>
+                    <p class="footer-copy mb-3">
+                        Không gian mua sắm công nghệ theo hướng bright-tech: rõ ràng, nhanh, hiện đại và sẵn sàng cho bài demo ASP.NET Core MVC.
+                    </p>
+                    <a class="btn btn-electric" asp-area="" asp-controller="Product" asp-action="Index">Khám phá catalog</a>
+                </div>
+                <div>
+                    <div class="footer-title">Danh mục</div>
+                    <div class="footer-list">
+                        <a asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        <a asp-controller="Product" asp-action="Index">Sản phẩm</a>
+                        <a asp-controller="Categories" asp-action="Index">Danh mục</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-title">Nền tảng</div>
+                    <div class="footer-list">
+                        <span>ASP.NET Core MVC</span>
+                        <span>Entity Framework Core</span>
+                        <span>SQL Server LocalDB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 WebCongNghe Lab 3</span>
+                <span>Storefront và CRUD được đồng bộ trong một hệ thiết kế duy nhất</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

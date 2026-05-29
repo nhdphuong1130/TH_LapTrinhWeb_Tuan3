@@ -1,0 +1,174 @@
+@model WebCongNghe.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Trang chủ";
+    var hero = Model.FeaturedHeroProduct;
+    var storyImageLeft = hero?.ImageUrl ?? Model.FeaturedCategories.FirstOrDefault()?.ImageUrl ?? "/images/sample/macbook-air-m3.png";
+    var storyImageRight = Model.FlashSaleProducts.FirstOrDefault()?.ImageUrl
+        ?? Model.FeaturedCategories.Skip(1).FirstOrDefault()?.ImageUrl
+        ?? storyImageLeft;
+}
+
+<div class="home-premium-shell">
+    <section class="home-premium-hero">
+        <div class="home-premium-hero__copy">
+            <span class="home-premium-eyebrow">Premium Tech Storefront</span>
+            <h1>@(hero?.Name ?? "Hệ thống công nghệ sáng, gọn và sẵn sàng để demo.")</h1>
+            <p>
+                @(hero?.Description ?? "WebDienTu kết hợp giao diện storefront hiện đại với CRUD thực tế trên ASP.NET Core MVC, Entity Framework Core và SQL Server.")
+            </p>
+            <div class="home-premium-hero__meta">
+                <span class="home-premium-chip">ASP.NET Core MVC</span>
+                <span class="home-premium-chip">Entity Framework Core</span>
+                <span class="home-premium-chip">SQL Server</span>
+            </div>
+            <div class="home-premium-hero__actions">
+                <a asp-controller="Product" asp-action="Index" class="btn home-premium-btn-primary">Xem catalog</a>
+                @if (hero is not null)
+                {
+                    <a asp-controller="Product" asp-action="Display" asp-route-id="@hero.Id" class="btn home-premium-btn-secondary">Xem sản phẩm nổi bật</a>
+                }
+                else
+                {
+                    <a asp-controller="Categories" asp-action="Index" class="btn home-premium-btn-secondary">Quản lý danh mục</a>
+                }
+            </div>
+        </div>
+        <div class="home-premium-hero__media">
+            <div class="home-premium-hero__visual">
+                <img src="@storyImageLeft" alt="Sản phẩm noi bat" />
+            </div>
+            @if (hero is not null)
+            {
+                <div class="home-premium-hero__card">
+                    <span class="home-premium-tech-label">@hero.CategoryName</span>
+                    <strong>@hero.Price.ToString("N0") VND</strong>
+                    @if (hero.OriginalPrice.HasValue)
+                    {
+                        <span>@hero.OriginalPrice.Value.ToString("N0") VND</span>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="home-premium-trust">
+        <article class="home-premium-trust__item">
+            <strong>Giao hàng linh hoạt</strong>
+            <span>Tư vấn rõ ràng và xử lý đơn nhanh.</span>
+        </article>
+        <article class="home-premium-trust__item">
+            <strong>Sản phẩm that</strong>
+            <span>Dữ liệu từ SQL Server, không dùng mock data.</span>
+        </article>
+        <article class="home-premium-trust__item">
+            <strong>CRUD đồng bộ</strong>
+            <span>Storefront và backoffice cùng một hệ thống.</span>
+        </article>
+        <article class="home-premium-trust__item">
+            <strong>Visual premium</strong>
+            <span>Bố cục sáng, chuẩn corporate, dễ demo.</span>
+        </article>
+    </section>
+
+    <section class="home-premium-section">
+        <div class="home-premium-section__head">
+            <div>
+                <span class="home-premium-eyebrow">Featured Categories</span>
+                <h2>Danh mục noi bat</h2>
+            </div>
+            <a asp-controller="Product" asp-action="Index">Xem toàn bộ</a>
+        </div>
+        <div class="home-premium-category-grid">
+            @foreach (var category in Model.FeaturedCategories)
+            {
+                <a asp-controller="Product" asp-action="Index" asp-route-categoryId="@category.Id" class="home-premium-category-card">
+                    <div class="home-premium-category-card__image">
+                        <img src="@category.ImageUrl" alt="@category.Name" />
+                    </div>
+                    <div class="home-premium-category-card__body">
+                        <span class="home-premium-tech-label">@category.ProductCount san pham</span>
+                        <h3>@category.Name</h3>
+                        <p>@category.Description</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </section>
+
+    <section class="home-premium-section">
+        <div class="home-premium-section__head">
+            <div>
+                <span class="home-premium-eyebrow">Flash Selection</span>
+                <h2>Sản phẩm noi bat hom nay</h2>
+            </div>
+            <a asp-controller="Product" asp-action="Index">Mở catalog</a>
+        </div>
+        <div class="home-premium-flash-grid">
+            @foreach (var product in Model.FlashSaleProducts)
+            {
+                <article class="home-premium-product-card">
+                    <div class="home-premium-product-card__image">
+                        <span class="home-premium-tech-label">@product.BadgeText</span>
+                        <img src="@product.ImageUrl" alt="@product.Name" />
+                    </div>
+                    <div class="home-premium-product-card__body">
+                        <div class="home-premium-product-card__meta">@product.CategoryName</div>
+                        <h3>@product.Name</h3>
+                        <p>@product.Description</p>
+                        <div class="home-premium-price">
+                            <strong>@product.Price.ToString("N0") VND</strong>
+                            @if (product.OriginalPrice.HasValue)
+                            {
+                                <span>@product.OriginalPrice.Value.ToString("N0") VND</span>
+                            }
+                        </div>
+                        <div class="home-premium-product-card__actions">
+                            <form asp-controller="Cart" asp-action="Add" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
+                                <button type="submit" class="btn home-premium-btn-primary">Thêm vào giỏ</button>
+                            </form>
+                            <a asp-controller="Product" asp-action="Display" asp-route-id="@product.Id" class="btn home-premium-btn-secondary">Chi tiết</a>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </section>
+
+    <section class="home-premium-story">
+        <div class="home-premium-story__media">
+            <img src="@storyImageLeft" alt="Không gian công nghệ" />
+            <img src="@storyImageRight" alt="Sản phẩm cong nghe" />
+        </div>
+        <div class="home-premium-story__copy">
+            <span class="home-premium-eyebrow">Brand Story</span>
+            <h2>Cửa hàng công nghệ được trình bày như một storefront thật sự.</h2>
+            <p>
+                Trang chủ moi uu tien hinh anh san pham, nhom danh muc, CTA ro rang va khong gian hien thi du lieu that tu database.
+                Mục tiêu là giúp bài demo trông gọn, có trọng tâm và dễ chuyển từ homepage sang catalog, cart và backoffice.
+            </p>
+            <ul class="home-premium-story__list">
+                <li>Dữ liệu sản phẩm đọc trực tiếp từ SQL Server.</li>
+                <li>Điều hướng thật tới catalog, chi tiết và giỏ hàng.</li>
+                <li>Visual premium theo huong corporate tech.</li>
+            </ul>
+            <a asp-controller="Categories" asp-action="Index" class="btn home-premium-btn-secondary">Mo workspace danh muc</a>
+        </div>
+    </section>
+
+    <section class="home-premium-newsletter">
+        <div>
+            <span class="home-premium-eyebrow home-premium-eyebrow--light">Stay Updated</span>
+            <h2>Sẵn sàng trình bày storefront và hệ thống CRUD trong cùng một bài demo.</h2>
+            <p>Thêm sản phẩm, quản lý danh mục và điều hướng qua giỏ hàng ngay từ bộ giao diện mới.</p>
+        </div>
+        <div class="home-premium-newsletter__actions">
+            <a asp-controller="Product" asp-action="Index" class="btn home-premium-btn-primary">Khám phá sản phẩm</a>
+            <a asp-controller="Cart" asp-action="Index" class="btn home-premium-btn-secondary">Mở giỏ hàng</a>
+        </div>
+    </section>
+</div>

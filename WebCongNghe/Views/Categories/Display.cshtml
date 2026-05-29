@@ -1,0 +1,38 @@
+@model WebCongNghe.Models.Category
+
+@{
+    ViewData["Title"] = "Chi tiết danh muc";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Category detail</span>
+        <h1 class="page-title">@Model.Name</h1>
+        <p class="page-copy mb-0 mt-3">Thong tin danh muc duoc trinh bay gon hon de ho tro viec xem, sua va dieu huong sang san pham.</p>
+    </div>
+    <div class="page-actions">
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-electric">Sửa danh mục</a>
+        <a asp-action="Index" class="btn btn-outline-light">Danh sach</a>
+    </div>
+</section>
+
+<section class="highlight-grid">
+    <div class="surface-card">
+        <div class="meta-list">
+            <div class="meta-item">
+                <span class="meta-label">Tên danh mục</span>
+                <div class="meta-value">@Model.Name</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Vai tro</span>
+                <div class="meta-value">Dinh danh nhom san pham de catalog va form san pham co the phan loai du lieu dung cach.</div>
+            </div>
+        </div>
+    </div>
+    <div class="surface-highlight">
+        <span class="eyebrow">Admin note</span>
+        <h2 class="section-title">Danh mục nen ngan gon, ro nghia va de tim.</h2>
+        <p class="section-copy mt-3 mb-4">Moi thay doi ten se anh huong truc tiep den cach hien thi trong man hinh danh sach va chi tiet san pham.</p>
+        <a asp-controller="Product" asp-action="Add" class="btn btn-primary">Thêm sản phẩm thuoc danh muc nay</a>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+@model WebCongNghe.Models.CartViewModel
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Shopping cart</span>
+        <h1 class="page-title">Giỏ hàng cua ban</h1>
+        <p class="page-copy mb-0 mt-3">Quản lý sản phẩm đã chọn, cập nhật số lượng và theo dõi tổng tiền ngay trong hệ thống demo.</p>
+    </div>
+    <div class="page-actions">
+        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-light">Tiếp tục mua sắm</a>
+    </div>
+</section>
+
+@if (TempData["CartMessage"] is string cartMessage)
+{
+    <div class="surface-panel mb-4">
+        <strong>@cartMessage</strong>
+    </div>
+}
+
+@if (Model.IsEmpty)
+{
+    <section class="empty-state">
+        <h2 class="section-title">Giỏ hàng hien dang trong.</h2>
+        <p class="section-copy mx-auto mt-3 mb-4">Hãy quay lại danh mục sản phẩm và thêm một vài món để bắt đầu luồng demo mua sắm.</p>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-electric">Khám phá sản phẩm</a>
+    </section>
+}
+else
+{
+    <section class="detail-layout">
+        <div class="surface-card">
+            <div class="management-grid">
+                @foreach (var item in Model.Items)
+                {
+                    <article class="management-row">
+                        <div class="d-flex gap-3 align-items-start">
+                            <div class="thumb-cell">
+                                @if (!string.IsNullOrWhiteSpace(item.ImageUrl))
+                                {
+                                    <img src="@item.ImageUrl" alt="@item.ProductName" class="product-thumb" />
+                                }
+                                else
+                                {
+                                    <div class="placeholder-thumb">Chưa có ảnh</div>
+                                }
+                            </div>
+                            <div>
+                                <div class="management-title">@item.ProductName</div>
+                                <div class="management-meta">@item.CategoryName</div>
+                                <div class="management-meta">Đơn giá: @item.UnitPrice.ToString("N0") VND</div>
+                                <div class="management-meta">Thành tiền: @item.LineTotal.ToString("N0") VND</div>
+                            </div>
+                        </div>
+                        <div class="management-actions">
+                            <form asp-controller="Cart" asp-action="UpdateQuantity" method="post" class="d-flex gap-2 align-items-center">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control" style="width: 90px;" />
+                                <button type="submit" class="btn btn-sm btn-outline-primary">Cập nhật</button>
+                            </form>
+                            <form asp-controller="Cart" asp-action="Remove" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Xóa</button>
+                            </form>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+        <div class="detail-stack">
+            <div class="surface-highlight">
+                <span class="eyebrow">Tóm tắt</span>
+                <span class="price-display">@Model.GrandTotal.ToString("N0") VND</span>
+                <p class="section-copy mt-3 mb-0">Tổng số lượng: @Model.TotalQuantity san pham. Phí vận chuyển dự kiến được tính đơn giản để phục vụ demo.</p>
+            </div>
+            <div class="surface-card">
+                <div class="meta-list">
+                    <div class="meta-item">
+                        <span class="meta-label">Tạm tính</span>
+                        <div class="meta-value">@Model.Subtotal.ToString("N0") VND</div>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Vận chuyển dự kiến</span>
+                        <div class="meta-value">@Model.EstimatedShipping.ToString("N0") VND</div>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Tổng cộng</span>
+                        <div class="meta-value">@Model.GrandTotal.ToString("N0") VND</div>
+                    </div>
+                </div>
+                <form asp-controller="Cart" asp-action="Clear" method="post" class="mt-4">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-outline-danger w-100">Xóa toàn bộ giỏ hàng</button>
+                </form>
+            </div>
+        </div>
+    </section>
+}

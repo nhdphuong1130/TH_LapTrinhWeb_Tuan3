@@ -1,0 +1,31 @@
+@model WebCongNghe.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa danh mục";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Delete category</span>
+        <h1 class="page-title">Xac nhan xoa danh muc.</h1>
+        <p class="page-copy mb-0 mt-3">Thao tác nay duoc giu co y de tranh lam mat nhom phan loai dang duoc su dung cho san pham trong he thong demo.</p>
+    </div>
+</section>
+
+<section class="detail-layout">
+    <div class="danger-card">
+        <div class="badge-soft danger-badge mb-3">Thao tác pha huy</div>
+        <h2 class="section-title">@Model.Name</h2>
+        <p class="side-note mt-3 mb-0">Hay dam bao danh muc nay khong con can cho dropdown, product card va cac luong trinh bay du lieu lien quan.</p>
+    </div>
+    <div class="surface-highlight">
+        <span class="eyebrow">Canh bao</span>
+        <h2 class="section-title">Neu tiep tuc, ban dang xoa mot lop phan loai du lieu.</h2>
+        <p class="section-copy mt-3 mb-4">Kiem tra lai cac san pham lien quan truoc khi xac nhan de tranh lam hong luong demo CRUD.</p>
+        <form asp-action="Delete" method="post" class="page-actions">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-outline-danger">Xac nhan xoa</button>
+            <a asp-action="Index" class="btn btn-outline-light">Huy</a>
+        </form>
+    </div>
+</section>

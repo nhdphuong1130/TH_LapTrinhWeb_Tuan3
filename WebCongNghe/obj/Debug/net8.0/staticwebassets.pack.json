@@ -1,0 +1,521 @@
+{
+  "Files": [
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\WebCongNghe.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebCongNghe.bundle.scp.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\1.png",
+      "PackagePath": "staticwebassets\\images\\1.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\494a097644004c28a34bed10ae03a4ec.png",
+      "PackagePath": "staticwebassets\\images\\494a097644004c28a34bed10ae03a4ec.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\70a9f09bf5634f80a9578de40ac7fa77.png",
+      "PackagePath": "staticwebassets\\images\\70a9f09bf5634f80a9578de40ac7fa77.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\794366c7443b454cbe1bb6d21f1706e6.png",
+      "PackagePath": "staticwebassets\\images\\794366c7443b454cbe1bb6d21f1706e6.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\9b76dd70045d49b7828d3ebc39b794e5.png",
+      "PackagePath": "staticwebassets\\images\\9b76dd70045d49b7828d3ebc39b794e5.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\Thumbs.db",
+      "PackagePath": "staticwebassets\\images\\Thumbs.db"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\af2d947127dd4baa9cb7499628d0e846.png",
+      "PackagePath": "staticwebassets\\images\\af2d947127dd4baa9cb7499628d0e846.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\b08427a925554faeb29c454a04004dc2.png",
+      "PackagePath": "staticwebassets\\images\\b08427a925554faeb29c454a04004dc2.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\daa3552ac99c494b8def07763b0b8a6d.png",
+      "PackagePath": "staticwebassets\\images\\daa3552ac99c494b8def07763b0b8a6d.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\feeb8698a46b4cd49441e4150fd40bfc.png",
+      "PackagePath": "staticwebassets\\images\\feeb8698a46b4cd49441e4150fd40bfc.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\Thumbs.db",
+      "PackagePath": "staticwebassets\\images\\sample\\Thumbs.db"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\iphone-15.png",
+      "PackagePath": "staticwebassets\\images\\sample\\iphone-15.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\keychron-keyboard.png",
+      "PackagePath": "staticwebassets\\images\\sample\\keychron-keyboard.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\laptop-gaming-asus-rog.png",
+      "PackagePath": "staticwebassets\\images\\sample\\laptop-gaming-asus-rog.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\logitech-mx-master.png",
+      "PackagePath": "staticwebassets\\images\\sample\\logitech-mx-master.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\macbook-air-m3.png",
+      "PackagePath": "staticwebassets\\images\\sample\\macbook-air-m3.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\sample\\samsung-galaxy-s24.png",
+      "PackagePath": "staticwebassets\\images\\sample\\samsung-galaxy-s24.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (1).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (1).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (10).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (10).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (11).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (11).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (12).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (12).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (13).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (13).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (14).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (14).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (15).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (15).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (16).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (16).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (17).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (17).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (18).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (18).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (19).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (19).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (2).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (2).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (20).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (20).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (21).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (21).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (22).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (22).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (23).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (23).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (24).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (24).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (25).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (25).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (26).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (26).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (27).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (27).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (28).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (28).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (29).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (29).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (3).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (3).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (30).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (30).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (31).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (31).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (32).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (32).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (33).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (33).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (34).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (34).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (35).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (35).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (36).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (36).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (37).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (37).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (38).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (38).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (39).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (39).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (4).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (4).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (40).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (40).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (41).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (41).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (42).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (42).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (5).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (5).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (6).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (6).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (7).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (7).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (8).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (8).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed (9).png",
+      "PackagePath": "staticwebassets\\images\\unnamed (9).png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed .png",
+      "PackagePath": "staticwebassets\\images\\unnamed .png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\images\\unnamed.png",
+      "PackagePath": "staticwebassets\\images\\unnamed.png"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "M:\\WebCongNghe\\WebCongNghe\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebCongNghe.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebCongNghe.props",
+      "PackagePath": "build\\WebCongNghe.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebCongNghe.props",
+      "PackagePath": "buildMultiTargeting\\WebCongNghe.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebCongNghe.props",
+      "PackagePath": "buildTransitive\\WebCongNghe.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

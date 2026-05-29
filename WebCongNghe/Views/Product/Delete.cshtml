@@ -1,0 +1,46 @@
+@model WebCongNghe.Models.Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+    var returnUrl = ViewBag.ReturnUrl as string;
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Delete product</span>
+        <h1 class="page-title">Xac nhan xoa san pham.</h1>
+        <p class="page-copy mb-0 mt-3">Man hinh nay tap trung vao quyet dinh cuoi cung, giup ban xem nhanh thong tin can thiet truoc khi xoa du lieu.</p>
+    </div>
+</section>
+
+<section class="detail-layout">
+    <div class="danger-card">
+        <div class="badge-soft danger-badge mb-3">Thao tác pha huy</div>
+        <h2 class="section-title">@Model.Name</h2>
+        <div class="meta-list mt-4">
+            <div class="meta-item">
+                <span class="meta-label">Gia</span>
+                <div class="meta-value">@Model.Price.ToString("N0") VND</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Danh mục</span>
+                <div class="meta-value">@Model.Category?.Name</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Mô tả</span>
+                <div class="meta-value">@(string.IsNullOrWhiteSpace(Model.Description) ? "Không có mô tả bổ sung." : Model.Description)</div>
+            </div>
+        </div>
+    </div>
+    <div class="surface-highlight">
+        <span class="eyebrow">Canh bao</span>
+        <h2 class="section-title">Sau khi xac nhan, ban ghi nay se bi xoa khoi he thong.</h2>
+        <p class="section-copy mt-3 mb-4">Chi thuc hien khi chac chan du lieu khong con can cho demo storefront, catalog va CRUD nua.</p>
+        <form asp-action="Delete" method="post" class="page-actions">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" name="returnUrl" value="@returnUrl" />
+            <button type="submit" class="btn btn-outline-danger">Xac nhan xoa</button>
+            <a href="@(string.IsNullOrWhiteSpace(returnUrl) ? Url.Action("Index", "Product") : returnUrl)" class="btn btn-outline-light">Huy</a>
+        </form>
+    </div>
+</section>

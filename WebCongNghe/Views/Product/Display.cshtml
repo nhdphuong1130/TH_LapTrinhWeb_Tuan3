@@ -1,0 +1,70 @@
+@model WebCongNghe.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết san pham";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Product detail</span>
+        <h1 class="display-title">@Model.Name</h1>
+        <p class="page-copy mb-0 mt-3">Trang chi tiet theo huong merchandising, nhan manh hinh anh, gia va metadata quan trong cua san pham.</p>
+    </div>
+    <div class="page-actions">
+        <form asp-controller="Cart" asp-action="Add" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="productId" value="@Model.Id" />
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+            <button type="submit" class="btn btn-electric">Thêm vào giỏ</button>
+        </form>
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-electric">Sửa sản phẩm</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Xóa</a>
+        <a asp-action="Index" class="btn btn-outline-light">Quay lai</a>
+    </div>
+</section>
+
+<section class="detail-layout">
+    <div class="surface-card">
+        <div class="detail-image-wrap">
+            @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="detail-image" />
+            }
+            else
+            {
+                <div class="placeholder-thumb">Chưa có ảnh</div>
+            }
+        </div>
+    </div>
+    <div class="detail-stack">
+        <div class="surface-highlight">
+            <span class="eyebrow">Gia ban</span>
+            <span class="price-display">@Model.Price.ToString("N0") VND</span>
+            <p class="section-copy mt-3 mb-0">Sản phẩm duoc quan ly trong he thong demo, san sang de sua, cap nhat hoac xoa ngay tai backoffice.</p>
+            <form asp-controller="Cart" asp-action="Add" method="post" class="mt-4 d-flex gap-2 flex-wrap">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="productId" value="@Model.Id" />
+                <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                <input type="number" name="quantity" value="1" min="1" class="form-control" style="max-width: 120px;" />
+                <button type="submit" class="btn btn-electric">Thêm vào giỏ hàng</button>
+            </form>
+        </div>
+        <div class="surface-card">
+            <div class="meta-list">
+                <div class="meta-item">
+                    <span class="meta-label">Danh mục</span>
+                    <div class="meta-value">@Model.Category?.Name</div>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Mô tả</span>
+                    <div class="meta-value">@(string.IsNullOrWhiteSpace(Model.Description) ? "Chưa có mo ta chi tiet cho san pham nay." : Model.Description)</div>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tinh chat</span>
+                    <div class="meta-value">Phu hop cho demo catalog, chi tiet san pham va workflow CRUD thong nhat.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

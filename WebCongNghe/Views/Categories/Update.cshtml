@@ -1,0 +1,43 @@
+@model WebCongNghe.Models.Category
+
+@{
+    ViewData["Title"] = "Cập nhật danh muc";
+}
+
+<section class="page-header">
+    <div>
+        <span class="eyebrow">Edit category</span>
+        <h1 class="page-title">Cập nhật danh muc @Model.Name.</h1>
+        <p class="page-copy mb-0 mt-3">Thay doi ten tai day se cap nhat cach hien thi trong form san pham va cac man hinh danh sach lien quan.</p>
+    </div>
+    <div class="page-actions">
+        <a asp-action="Index" class="btn btn-outline-light">Quay lai danh sach</a>
+    </div>
+</section>
+
+<section class="editor-layout">
+    <div class="surface-form">
+        <form asp-action="Update" method="post" class="editor-grid">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="page-actions">
+                <button type="submit" class="btn btn-electric">Luu thay doi</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Huy</a>
+            </div>
+        </form>
+    </div>
+    <aside class="surface-card">
+        <span class="eyebrow">Trang thai</span>
+        <h2 class="section-title">Dang chinh sua @Model.Name</h2>
+        <p class="side-note mt-3 mb-0">Ten moi can van ngan gon va ro nghia de khong lam roi thanh phan catalog va dieu huong du lieu.</p>
+    </aside>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

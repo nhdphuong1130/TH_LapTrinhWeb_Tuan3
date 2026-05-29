@@ -1,0 +1,298 @@
+@model WebCongNghe.Models.ProductCatalogViewModel
+
+@{
+    ViewData["Title"] = "Sản phẩm";
+
+    string BuildCatalogUrl(int pageNumber)
+    {
+        var routeValues = new Dictionary<string, object?>();
+
+        if (Model.SelectedCategoryId.HasValue)
+        {
+            routeValues["categoryId"] = Model.SelectedCategoryId.Value.ToString();
+        }
+
+        if (Model.SelectedBrands.Count > 0)
+        {
+            routeValues["brands"] = Model.SelectedBrands.ToArray();
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.SelectedCpu))
+        {
+            routeValues["cpu"] = Model.SelectedCpu;
+        }
+
+        if (!string.IsNullOrWhiteSpace(Model.SelectedRam))
+        {
+            routeValues["ram"] = Model.SelectedRam;
+        }
+
+        if (Model.SelectedMinPrice.HasValue)
+        {
+            routeValues["minPrice"] = Model.SelectedMinPrice.Value.ToString("0");
+        }
+
+        if (Model.SelectedMaxPrice.HasValue)
+        {
+            routeValues["maxPrice"] = Model.SelectedMaxPrice.Value.ToString("0");
+        }
+
+        routeValues["sort"] = Model.Sort;
+        routeValues["page"] = pageNumber.ToString();
+
+        return Url.Action("Index", "Product", routeValues) ?? "#";
+    }
+}
+
+<div class="catalog-premium">
+    <section class="catalog-premium__hero">
+        <div class="catalog-premium__breadcrumbs">
+            <a asp-controller="Home" asp-action="Index">Trang chủ</a>
+            <span>&gt;</span>
+            <a asp-controller="Categories" asp-action="Index">Danh mục</a>
+            @if (!string.IsNullOrWhiteSpace(Model.CurrentCategoryName))
+            {
+                <span>&gt;</span>
+                <span>@Model.CurrentCategoryName</span>
+            }
+        </div>
+        <div class="catalog-premium__hero-copy">
+            <div class="catalog-premium__mono">PRODUCT CATALOG</div>
+            <h1>@Model.PageTitle</h1>
+            <p>@Model.PageDescription</p>
+        </div>
+        <div class="catalog-premium__hero-actions">
+            <a asp-action="Add" class="btn catalog-premium__btn-primary">Thêm sản phẩm</a>
+            <a asp-controller="Categories" asp-action="Index" class="btn catalog-premium__btn-secondary">Quản lý danh mục</a>
+        </div>
+    </section>
+
+    <div class="catalog-premium__layout">
+        <aside class="catalog-premium__sidebar">
+            <form method="get" asp-action="Index" class="catalog-premium__filter-stack">
+                <section class="catalog-premium__filter-card">
+                    <div class="catalog-premium__filter-head">
+                        <h2>Danh mục</h2>
+                    </div>
+                    <div class="catalog-premium__option-list">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <label class="catalog-premium__option catalog-premium__option--radio @(category.IsSelected ? "is-selected" : null)">
+                                <input type="radio" name="categoryId" value="@category.Value" checked="@category.IsSelected" />
+                                <span>@category.Label</span>
+                                <small>@category.Count</small>
+                            </label>
+                        }
+                    </div>
+                </section>
+
+                <section class="catalog-premium__filter-card">
+                    <div class="catalog-premium__filter-head">
+                        <h2>Thương hiệu</h2>
+                    </div>
+                    <div class="catalog-premium__option-list">
+                        @foreach (var brand in Model.Brands)
+                        {
+                            <label class="catalog-premium__option">
+                                <input type="checkbox" name="brands" value="@brand.Value" checked="@brand.IsSelected" />
+                                <span>@brand.Label</span>
+                            </label>
+                        }
+                    </div>
+                </section>
+
+                <section class="catalog-premium__filter-card">
+                    <div class="catalog-premium__filter-head">
+                        <h2>Khoảng giá</h2>
+                    </div>
+                    <div class="catalog-premium__price-grid">
+                        <div>
+                            <label for="minPrice" class="catalog-premium__field-label">Tu</label>
+                            <input id="minPrice" name="minPrice" type="number" step="1000000" min="0" value="@Model.SelectedMinPrice" class="form-control" />
+                        </div>
+                        <div>
+                            <label for="maxPrice" class="catalog-premium__field-label">Den</label>
+                            <input id="maxPrice" name="maxPrice" type="number" step="1000000" min="0" value="@Model.SelectedMaxPrice" class="form-control" />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="catalog-premium__filter-card">
+                    <div class="catalog-premium__filter-head">
+                        <h2>Cấu hình</h2>
+                    </div>
+                    <div class="catalog-premium__field-stack">
+                        <div>
+                            <label for="cpu" class="catalog-premium__field-label">CPU</label>
+                            <select id="cpu" name="cpu" class="form-select">
+                                <option value="">CPU (Tất cả)</option>
+                                @foreach (var cpuOption in Model.CpuOptions)
+                                {
+                                    <option value="@cpuOption" selected="@(string.Equals(cpuOption, Model.SelectedCpu, StringComparison.OrdinalIgnoreCase))">@cpuOption</option>
+                                }
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ram" class="catalog-premium__field-label">RAM</label>
+                            <select id="ram" name="ram" class="form-select">
+                                <option value="">RAM (Tất cả)</option>
+                                @foreach (var ramOption in Model.RamOptions)
+                                {
+                                    <option value="@ramOption" selected="@(string.Equals(ramOption, Model.SelectedRam, StringComparison.OrdinalIgnoreCase))">@ramOption</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <input type="hidden" name="sort" value="@Model.Sort" />
+
+                <div class="catalog-premium__filter-actions">
+                    <button type="submit" class="btn catalog-premium__btn-primary">Áp dụng</button>
+                    <a asp-action="Index" class="btn catalog-premium__btn-secondary">Xóa loc</a>
+                </div>
+            </form>
+        </aside>
+
+        <section class="catalog-premium__content">
+            <div class="catalog-premium__toolbar">
+                <div class="catalog-premium__result">
+                    @if (Model.TotalItems > 0)
+                    {
+                        <span>Hiển thị @Model.StartItem-@Model.EndItem tren @Model.TotalItems san pham</span>
+                    }
+                    else
+                    {
+                        <span>Không tìm thấy sản phẩm phù hợp.</span>
+                    }
+                </div>
+                <form method="get" asp-action="Index" class="catalog-premium__sort-form">
+                    @if (Model.SelectedCategoryId.HasValue)
+                    {
+                        <input type="hidden" name="categoryId" value="@Model.SelectedCategoryId.Value" />
+                    }
+                    @foreach (var brand in Model.SelectedBrands)
+                    {
+                        <input type="hidden" name="brands" value="@brand" />
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.SelectedCpu))
+                    {
+                        <input type="hidden" name="cpu" value="@Model.SelectedCpu" />
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.SelectedRam))
+                    {
+                        <input type="hidden" name="ram" value="@Model.SelectedRam" />
+                    }
+                    @if (Model.SelectedMinPrice.HasValue)
+                    {
+                        <input type="hidden" name="minPrice" value="@Model.SelectedMinPrice.Value.ToString("0")" />
+                    }
+                    @if (Model.SelectedMaxPrice.HasValue)
+                    {
+                        <input type="hidden" name="maxPrice" value="@Model.SelectedMaxPrice.Value.ToString("0")" />
+                    }
+                    <label for="sort" class="catalog-premium__sort-label">Sắp xếp</label>
+                    <select id="sort" name="sort" class="form-select" onchange="this.form.submit()">
+                        <option value="newest" selected="@(Model.Sort == "newest")">Mới nhất</option>
+                        <option value="rating" selected="@(Model.Sort == "rating")">Đánh giá cao</option>
+                        <option value="price-asc" selected="@(Model.Sort == "price-asc")">Giá tăng dần</option>
+                        <option value="price-desc" selected="@(Model.Sort == "price-desc")">Giá giảm dần</option>
+                        <option value="name" selected="@(Model.Sort == "name")">Tên A-Z</option>
+                    </select>
+                </form>
+            </div>
+
+            @if (!Model.Products.Any())
+            {
+                <section class="empty-state">
+                    <h2 class="section-title">Không có sản phẩm phù hợp với bộ lọc hiện tại.</h2>
+                    <p class="section-copy mx-auto mt-3 mb-4">Thu nới rong khoang gia, bo bot dieu kien loc hoac tao san pham moi de lam day catalog.</p>
+                    <a asp-action="Index" class="btn catalog-premium__btn-primary">Đặt lại danh mục</a>
+                </section>
+            }
+            else
+            {
+                <div class="catalog-premium__grid">
+                    @foreach (var product in Model.Products)
+                    {
+                        <article class="catalog-premium__card">
+                            <div class="catalog-premium__card-media">
+                                <span class="catalog-premium__badge catalog-premium__badge--@product.BadgeTone">@product.BadgeText</span>
+                                @if (!string.IsNullOrWhiteSpace(product.ImageUrl))
+                                {
+                                    <img src="@product.ImageUrl" alt="@product.Name" />
+                                }
+                                else
+                                {
+                                    <div class="placeholder-thumb">Chưa có ảnh</div>
+                                }
+                            </div>
+                            <div class="catalog-premium__rating">
+                                <span>☆ @product.Rating.ToString("0.0")</span>
+                                <span>(@product.ReviewCount danh gia)</span>
+                            </div>
+                            <h2 class="catalog-premium__card-title">@product.Name</h2>
+                            <p class="catalog-premium__card-copy">@product.Description</p>
+                            <div class="catalog-premium__specs">
+                                <span class="catalog-premium__spec">@product.Brand</span>
+                                <span class="catalog-premium__spec">@product.Cpu</span>
+                                <span class="catalog-premium__spec">@product.Ram</span>
+                            </div>
+                            <div class="catalog-premium__price">
+                                <strong>@product.Price.ToString("N0")đ</strong>
+                                @if (product.OriginalPrice.HasValue)
+                                {
+                                    <span>@product.OriginalPrice.Value.ToString("N0")đ</span>
+                                }
+                            </div>
+                            <div class="catalog-premium__card-actions">
+                                <div class="catalog-premium__card-actions-main">
+                                    <a asp-action="Display" asp-route-id="@product.Id" class="btn catalog-premium__btn-primary">Xem chi tiết</a>
+                                    <form asp-controller="Cart" asp-action="Add" method="post" class="catalog-premium__inline-form">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="productId" value="@product.Id" />
+                                        <input type="hidden" name="quantity" value="1" />
+                                        <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                        <button type="submit" class="btn catalog-premium__btn-icon" aria-label="Thêm vào giỏ hàng" title="Thêm vào giỏ hàng">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <circle cx="9" cy="20" r="1.5"></circle>
+                                                <circle cx="18" cy="20" r="1.5"></circle>
+                                                <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H7"></path>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="catalog-premium__card-actions-secondary">
+                                    <a asp-action="Update" asp-route-id="@product.Id" class="btn catalog-premium__btn-secondary">Sửa</a>
+                                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn catalog-premium__btn-danger">Xóa</a>
+                                </div>
+                            </div>
+                        </article>
+                    }
+                </div>
+
+                @if (Model.TotalPages > 1)
+                {
+                    <nav class="catalog-premium__pagination" aria-label="Phan trang">
+                        @for (var pageNumber = 1; pageNumber <= Model.TotalPages; pageNumber++)
+                        {
+                            <a href="@BuildCatalogUrl(pageNumber)" class="catalog-premium__page-link @(pageNumber == Model.Page ? "is-active" : null)">@pageNumber</a>
+                        }
+                    </nav>
+                }
+            }
+        </section>
+    </div>
+
+    <section class="catalog-premium__support">
+        <div>
+            <div class="catalog-premium__mono catalog-premium__mono--dark">NEED HELP</div>
+            <h2>Bạn cần tư vấn thêm?</h2>
+            <p>Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ bạn tìm kiếm chiếc laptop phù hợp nhất với nhu cầu công việc.</p>
+        </div>
+        <div class="catalog-premium__support-actions">
+            <a asp-controller="Categories" asp-action="Index" class="btn catalog-premium__btn-primary">Liên hệ ngay</a>
+            <a asp-action="Add" class="btn catalog-premium__btn-secondary catalog-premium__btn-secondary-dark">Thêm sản phẩm</a>
+        </div>
+    </section>
+</div>
